@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from home.models import Person
-from .serializers import PersonSerializer
+from home.models import NewMo3,Person
+from .serializers import NewMo3Serializer,PersonSerializer
 from rest_framework import authentication
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.viewsets import ModelViewSet, ViewSet
@@ -37,3 +37,8 @@ class PersonViewSet(viewsets.ModelViewSet):
     serializer_class = PersonSerializer
     authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
     queryset = Person.objects.all()
+
+class NewMo3ViewSet(viewsets.ModelViewSet):
+    serializer_class = NewMo3Serializer
+    authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
+    queryset = NewMo3.objects.all()
